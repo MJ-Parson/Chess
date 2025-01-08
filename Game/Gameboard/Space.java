@@ -1,44 +1,44 @@
 package Chess.Game.Gameboard;
 
+import Chess.Game.Pieces.Coordinate;
 import Chess.Game.Pieces.Piece;
 
 public class Space {
     private Piece piece;
-    private int x;
-    private int y;
+    private Coordinate coordinate;
 
-    public Space(int x, int y, Piece piece)
+    public Space(Coordinate coordinate, Piece piece)
     {
         this.setPiece(piece);
-        this.setX(x);
-        this.setY(y);
+        this.setCoordinate(coordinate);
     }
 
-    public Piece getPiece()
-    {
+    public Piece getPiece(){
         return this.piece;
     }
-    public void setPiece(Piece p)
-    {
-        this.piece=p;
+    public void setPiece(Piece p){
+        this.piece = p;
     }
 
-    public int getX()
-    {
-        return this.x;
+    public Coordinate getCoordinate(){
+        return this.coordinate;
     }
-    public void setX(int x)
-    {
-        this.x = x;
+    public void setCoordinates(int x, int y) {
+        this.coordinate.setX(x);
+        this.coordinate.setY(y);
+    }
+    public void setCoordinate(Coordinate coordinate){
+        this.coordinate = coordinate;
     }
 
-    public int getY()
+    public boolean hasPiece()
     {
-        return this.y;
+        return this.piece != null;
     }
-    public void setY(int y)
-    {
-        this.y = y;
+
+    @Override
+    public String toString() {
+        return coordinate.toString()+" Piece "+((hasPiece() ? piece.toString() : "Empty"));
     }
     
 }
