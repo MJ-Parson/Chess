@@ -1,4 +1,6 @@
-package Chess;
+package Chess.Game;
+
+import Chess.Game.Pieces.Piece;
 
 public class Space {
     private Piece piece;

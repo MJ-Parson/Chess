@@ -1,4 +1,4 @@
-package Chess;
+package Chess.Game;
 
 public class Board {
     Space[][] boxes;
