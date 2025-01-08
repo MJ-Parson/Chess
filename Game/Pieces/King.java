@@ -1,7 +1,7 @@
 package Chess.Game.Pieces;
 
-import Chess.Game.Board;
-import Chess.Game.Space;
+import Chess.Game.Gameboard.Board;
+import Chess.Game.Gameboard.Space;
 
 public class King extends Piece{
     private boolean castle = false;

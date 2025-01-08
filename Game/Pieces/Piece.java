@@ -1,8 +1,9 @@
 package Chess.Game.Pieces;
 
-import Chess.Game.Board;
 import Chess.Game.Move;
-import Chess.Game.Space;
+import Chess.Game.Gameboard.Board;
+import Chess.Game.Gameboard.Space;
+
 import java.util.List;
 
 public abstract class Piece implements java.io.Serializable{
