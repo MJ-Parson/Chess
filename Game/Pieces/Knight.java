@@ -3,9 +3,9 @@ package Chess.Game.Pieces;
 import java.util.ArrayList;
 import java.util.List;
 
-import Chess.Game.Move;
 import Chess.Game.Gameboard.Board;
 import Chess.Game.Gameboard.Space;
+import Chess.Game.Move.Move;
 import Chess.Game.Utilities.BoardUtilities;
 
 public class Knight extends Piece{
