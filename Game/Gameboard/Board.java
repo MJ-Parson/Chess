@@ -3,13 +3,14 @@ package Chess.Game.Gameboard;
 import Chess.Game.Pieces.Coordinate;
 import Chess.Game.Pieces.PieceTypes;
 import Chess.Game.Pieces.Team;
+import Chess.Game.Player.Player;
 import Chess.Game.Utilities.BoardUtilities;
 
 public class Board implements java.io.Serializable{
     
     private final Space[][] spaces;
     private Player whitePlayer;
-    private player blackPlayer;
+    private Player blackPlayer;
     private Player currentPlayer;
     private Space chosenSpace = null;
 
@@ -71,8 +72,8 @@ public class Board implements java.io.Serializable{
     }
 
     public Coordinate getCoordTeamPiece(Team team, PieceTypes pieceType) {
-        for(int i = 0; i< BOARD_Configurations.ROW_COUNT; i++) {
-            for(int j=0;j<BOARD_Configurations.ROW_SPACE_COUNT;j++){
+        for(int i = 0; i< 8; i++) {
+            for(int j=0;j< 8;j++){
                 if(!spaces[i][j].hasPiece()) {
                     continue;
                 }
@@ -93,8 +94,8 @@ public class Board implements java.io.Serializable{
     }
 
     public Space getSpaceOfGivenTeamPiece(Team team, PieceTypes pieceType) {
-        for(int i=0; i<BOARD_Configurations.ROW_COUNT;i++) {
-            for(int j=0; j<BOARD_Configurations.ROW_SPACE_COUNT;j++){
+        for(int i=0; i< 8;i++) {
+            for(int j=0; j< 8;j++){
                 if(!spaces[i][j].hasPiece()){
                     continue;
                 }

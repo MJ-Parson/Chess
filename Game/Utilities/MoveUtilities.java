@@ -1,5 +1,5 @@
 package Chess.Game.Utilities;
 
-public class BoardUtilities {
+public class MoveUtilities {
     
 }
