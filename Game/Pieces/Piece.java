@@ -1,7 +1,6 @@
 package Chess.Game.Pieces;
 
 import Chess.Game.Gameboard.Board;
-import Chess.Game.Gameboard.Space;
 import Chess.Game.Move.Move;
 
 import java.util.List;

@@ -6,6 +6,7 @@ import java.util.List;
 import Chess.Game.Gameboard.Board;
 import Chess.Game.Gameboard.Space;
 import Chess.Game.Move.Move;
+import Chess.Game.Resources.PIECE_Configurations;
 import Chess.Game.Utilities.BoardUtilities;
 
 public class Knight extends Piece{
@@ -30,7 +31,7 @@ public class Knight extends Piece{
                 possibleMoves.add(new Move(board,board.getSpace(currentCoord),endSpace));
             } else {
                 if(endSpace.getPiece().getTeam() != this.getTeam()) {
-                    possibleMoves.add(new Move(board,board.getTile(currentCoord),endSpace));
+                    possibleMoves.add(new Move(board,board.getSpace(currentCoord),endSpace));
                 }
             }
         }
