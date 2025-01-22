@@ -35,7 +35,89 @@ public class MoveUtilities {
             }
             endSpace = board.getSpace(currentCoord.plus(coord));
 
-            
+            if(!endSpace.hasPiece())
+            {
+                continue;
+            } else {
+                if (endSpace.getPiece().getTeam() != team && endSpace.getPiece().getType() == PieceTypes.KNIGHT)
+                {
+                    return true;
+                }
+            }
         }
+
+        //is there a danger on a straightaway?
+
+        
+        Coordinate endCoordinate;
+        for(Coordinate coord : PIECE_Configurations.ROOK_MOVES) 
+        {
+            endCoordinate = currentCoord;
+            while(BoardUtilities.isValidCoordinate(endCoordinate.plus(coord)))
+            {
+                endCoordinate = endCoordinate.plus(coord);
+                endSpace = board.getSpace(endCoordinate);
+                if(!endSpace.hasPiece())
+                {
+                    continue;
+                } else {
+                    if(endSpace.getPiece().getTeam() == team)
+                    {
+                        break;
+                    }
+                    if(endSpace.getPiece().getTeam() != team && (endSpace.getPiece().getType() == PieceTypes.ROOK || endSpace.getPiece().getType() == PieceTypes.QUEEN)) {
+                        return true;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+
+        //danger from diagonals
+        for(Coordinate coord : PIECE_Configurations.BISHOP_MOVES)
+        {
+            endCoordinate = currentCoord;
+            while(BoardUtilities.isValidCoordinate(endCoordinate.plus(coord)))
+            {
+                endCoordinate = endCoordinate.plus(coord);
+                endSpace = board.getSpace(endCoordinate);
+                if(!endSpace.hasPiece())
+                {
+                    continue;
+                } else {
+                    if(endSpace.getPiece().getTeam() == team) {
+                        break;
+                    }
+                    if(endSpace.getPiece().getTeam() != team && (endSpace.getPiece().getType() == PieceTypes.BISHOP || endSpace.getPiece().getType() == PieceTypes.QUEEN))
+                    {
+                        return true;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+
+        //pawn attacks
+        for(Coordinate coord : (Coordinate[])PIECE_Configurations.PAWN_MOVES.get(team).get("Attack"))
+        {
+            if(!BoardUtilities.isValidCoordinate(currentCoord.plus(coord)))
+            {
+                continue;
+            }
+            endSpace = board.getSpace(currentCoord.plus(coord));
+
+            if(!endSpace.hasPiece())
+            {
+                continue;
+            } else {
+                if(endSpace.getPiece().getTeam() != team && endSpace.getPiece().getType() == PieceTypes.PAWN)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
